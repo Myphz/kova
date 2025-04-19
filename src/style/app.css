@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+[class^="text-h-"] {
+  @apply !font-header font-semibold uppercase;
+}
+
 body {
-  background: linear-gradient(in oklab, #311319, #000);
-  color: #c14d53;
+  background: linear-gradient(in oklab, #2e131a, #070c12);
+}
+
+svg {
+  @apply fill-accent text-background;
 }

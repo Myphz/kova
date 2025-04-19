@@ -1,43 +1,31 @@
 // NB: SvelteKit aliases don't work here!
-import { SCREEN_LABELS } from "./src/utils/tailwind/config";
-import {
-  fontHierarchyToTWConfig,
-  gradientsToTWConfig
-} from "./src/utils/tailwind/theme";
 
 import type { Config } from "tailwindcss";
-import type { PluginCreator } from "tailwindcss/types/config";
-
-const [DESKTOP_SCREEN, TABLET_SCREEN] = SCREEN_LABELS;
 
 export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    fontSize: {},
+    fontSize: {
+      "h-1": "3rem",
+      "h-2": "2.5rem",
+      "h-3": "1.75rem",
+      "h-4": "1.5rem",
+      body: "1rem",
+      small: "0.875rem",
+      xs: "0.75rem"
+    },
     fontFamily: {
       header: "'Orbitron', sans-serif;",
       body: "'Rajdhani', sans-serif;"
     },
-    screens: {
-      mobile: "320px",
-      [TABLET_SCREEN]: "744px",
-      [DESKTOP_SCREEN]: "1440px"
-    },
     colors: {
       transparent: "transparent",
-      text: "#F5F7FA",
-      background: "#131518",
-      "text-secondary": "#C0C5CC",
-      primary: "#F58F38",
-      secondary: "#EF4A55"
+      primary: "#C24C50",
+      secondary: "#34E3F9",
+      border: "#332427",
+      text: "#ACA3A8",
+      background: "#151010",
+      accent: "#FEE329"
     }
-  },
-  plugins: [
-    ({ addUtilities }: Parameters<PluginCreator>[0]) => {
-      addUtilities(fontHierarchyToTWConfig());
-    },
-    ({ addUtilities }: Parameters<PluginCreator>[0]) => {
-      addUtilities(gradientsToTWConfig());
-    }
-  ]
+  }
 } satisfies Config;

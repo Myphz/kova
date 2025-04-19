@@ -10,19 +10,19 @@
 </script>
 
 <article
-  class="relative flex w-full flex-col gap-2 bg-[#2e2a2a] p-4 *:z-10 after:bg-[#1A0F15]"
+  class="relative flex w-full flex-col gap-2 bg-border p-4 leading-none *:z-10 after:bg-background"
 >
-  <div class="flex items-center gap-2">
+  <div class="flex items-center gap-4">
     <div
-      class="relative after:absolute after:left-1/2 after:top-1/2 after:size-5 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-[yellow] after:blur-[10px]"
+      class="relative after:absolute after:left-1/2 after:top-1/2 after:size-5 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-accent after:blur-[10px]"
     >
-      <CircleAlert class="icon" size={40} fill="#FFD83D" color="#1A0F15" />
+      <CircleAlert class="icon" size={40} />
     </div>
-    <div class="flex-1">
-      <header class="font-medium uppercase text-[#2fe7f4] text-h-4">
+    <div class="flex flex-1 flex-col gap-2">
+      <header class="text-h-4 font-medium text-secondary">
         {title}
       </header>
-      <div class="font-medium text-[#a8a3a4]">
+      <div class="font-medium">
         {description}{description.endsWith(".") ? "" : "."}
       </div>
     </div>
@@ -31,16 +31,12 @@
 
 <style>
   article {
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 95% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 93% 100%, 0 100%);
     &::after {
       content: "";
       position: absolute;
       clip-path: inherit;
       inset: 1px;
     }
-  }
-
-  .icon {
-    box-shadow: 0 0 20px 20px red;
   }
 </style>
