@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 [class^="text-h-"] {
-  @apply !font-header font-semibold uppercase;
+  @apply font-semibold uppercase;
 }
 
 body {
@@ -12,4 +12,8 @@ body {
 
 svg {
   @apply fill-accent text-background;
+}
+
+.cyberpunk {
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 93% 100%, 0 100%);
 }

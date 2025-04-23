@@ -10,7 +10,7 @@
 </script>
 
 <article
-  class="relative flex w-full flex-col gap-2 bg-border p-4 leading-none *:z-10 after:bg-background"
+  class="cyberpunk relative flex w-full flex-col gap-2 bg-border p-4 leading-none *:z-10 after:bg-background"
 >
   <div class="flex items-center gap-4">
     <div
@@ -30,13 +30,10 @@
 </article>
 
 <style>
-  article {
-    clip-path: polygon(0 0, 100% 0, 100% 70%, 93% 100%, 0 100%);
-    &::after {
-      content: "";
-      position: absolute;
-      clip-path: inherit;
-      inset: 1px;
-    }
+  article::after {
+    content: "";
+    position: absolute;
+    clip-path: inherit;
+    inset: 1.5px;
   }
 </style>

@@ -15,7 +15,6 @@ export default {
       xs: "0.75rem"
     },
     fontFamily: {
-      header: "'Orbitron', sans-serif;",
       body: "'Rajdhani', sans-serif;"
     },
     colors: {
