@@ -1,8 +1,10 @@
 import { Preferences } from "@capacitor/preferences";
+import type { Overwrite } from "@utils/types";
 
 const QUESTS_KEY = "quests";
 
 type Quest = {
+  id: number;
   title: string;
   description: string;
   text: string;
@@ -22,14 +24,13 @@ export const loadQuests = async () => {
   Object.assign(quests, newQuests);
 };
 
-type SaveQuestArg = {
-  quest: Quest;
-  id: string;
-};
+export const saveQuest = async (
+  quest: Overwrite<Quest, { id?: Quest["id"] }>
+) => {
+  if (!quest.id) quest.id = +new Date();
+  quests[quest.id] = quest as Quest;
 
-export const saveQuest = async ({ quest, id }: SaveQuestArg) => {
-  quests[id] = quest;
-  saveQuests();
+  await saveQuests();
 };
 
 const saveQuests = () =>

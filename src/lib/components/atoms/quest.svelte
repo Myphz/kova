@@ -12,7 +12,7 @@
 <article
   class="cyberpunk relative flex w-full flex-col gap-2 bg-border p-4 leading-none after:bg-background"
 >
-  <div class="flex items-center gap-4">
+  <div class="relative z-10 flex items-center gap-4">
     <div
       class="relative after:absolute after:left-1/2 after:top-1/2 after:size-5 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-accent after:blur-[10px]"
     >

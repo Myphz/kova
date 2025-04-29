@@ -4,7 +4,7 @@
 </script>
 
 <section class="flex flex-col gap-1">
-  {#each Object.values(quests) as quest (quest.title)}
+  {#each Object.values(quests).sort((q1, q2) => q2.id - q1.id) as quest (quest.title)}
     <Quest {...quest} />
   {/each}
 </section>
