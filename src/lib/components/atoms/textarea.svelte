@@ -21,27 +21,27 @@
     onInput?.(e.currentTarget.value);
   };
 
-  const { label, name, type, inputmode, onInput, inputClass }: Props = $props();
-  let ref: HTMLInputElement;
+  const { label, name, onInput, inputClass }: Props = $props();
+  let ref: HTMLTextAreaElement;
 </script>
 
 <label class="group relative block w-full text-small">
   <div
+    style="--cyberpunk-height: 90%"
     class="cyberpunk input-wrapper epic-transition bg-border p-px duration-100 after:bg-background"
   >
-    <input
+    <textarea
       autocomplete="off"
+      style="--cyberpunk-height: 90%"
       class={twMerge(
-        "cyberpunk relative z-10 w-full bg-background px-4 py-3 text-text",
+        "cyberpunk relative z-10 min-h-[30svh] w-full bg-background px-4 py-3 text-text",
         inputClass
       )}
       placeholder=" "
       {name}
-      {inputmode}
-      type={type || "text"}
       bind:this={ref}
       oninput={onInputWrapper}
-    />
+    ></textarea>
   </div>
   <div
     class="epic-transition div-label absolute left-4 top-3 bg-background px-1 duration-100"
@@ -58,15 +58,15 @@
     inset: 1px;
   }
 
-  label:has(input:not(:placeholder-shown)) .div-label {
+  label:has(textarea:not(:placeholder-shown)) .div-label {
     @apply -top-0 -translate-y-1/2 text-xs;
   }
 
-  :global(label:has(input[data-invalid]) .input-wrapper) {
+  :global(label:has(textarea[data-invalid]) .input-wrapper) {
     @apply bg-primary;
   }
 
-  label:has(input:focus-within) .input-wrapper {
+  label:has(textarea:focus-within) .input-wrapper {
     @apply bg-accent;
   }
 
