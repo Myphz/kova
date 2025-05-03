@@ -3,7 +3,7 @@ import type { Overwrite } from "@utils/types";
 
 const QUESTS_KEY = "quests";
 
-type Quest = {
+export type Quest = {
   id: number;
   title: string;
   description: string;
@@ -31,6 +31,12 @@ export const saveQuest = async (
   quests[quest.id] = quest as Quest;
 
   await saveQuests();
+};
+
+export const getQuest = (id: Quest["id"]) => {
+  const ret = quests[id];
+  if (!ret) throw new Error("getQuest: can't find quest!");
+  return ret;
 };
 
 const saveQuests = () =>

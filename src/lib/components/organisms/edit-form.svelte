@@ -5,7 +5,20 @@
   import Textarea from "@atoms/textarea.svelte";
   import { z } from "zod";
   import { goto } from "$app/navigation";
-  import { saveQuest } from "../../../stores/quests.svelte";
+  import {
+    getQuest,
+    saveQuest,
+    type Quest
+  } from "../../../stores/quests.svelte";
+
+  type Props = { questId?: Quest["id"] };
+
+  const { questId }: Props = $props();
+
+  const editingQuest = $derived.by(() => {
+    if (!questId) return {};
+    return getQuest(questId);
+  });
 
   const schema = z.object({
     title: z.string().nonempty(),
@@ -18,7 +31,12 @@
   };
 </script>
 
-<Form {schema} onsubmit={onSubmit} class="flex flex-col gap-4">
+<Form
+  {schema}
+  onsubmit={onSubmit}
+  defaultValues={editingQuest}
+  class="flex flex-col gap-4"
+>
   <Input label="Title" name="title" />
   <Textarea label="Text" name="text" />
   <Button class="mt-4" type="submit">CREATE QUEST</Button>
