@@ -3,7 +3,7 @@
   import "../style/app.css";
   import "../style/fonts.css";
   import { loadQuests } from "../stores/quests.svelte";
-  import { Plus } from "@lucide/svelte";
+  import GlobalHeader from "@molecules/global-header.svelte";
 
   onMount(() => {
     loadQuests();
@@ -11,11 +11,10 @@
 </script>
 
 <main>
-  <div class="flex items-center justify-between">
-    <h1 class="text-h-1 text-primary">KOVA</h1>
-    <a href="/edit">
-      <Plus class="text-h-1 text-accent" size="1em" />
-    </a>
-  </div>
+  <!-- This is risky... I hope managing the header state here globally -->
+  <!-- with if statements will be OK and I won't regret it... -->
+  <!-- I hope it's not going to be too complex... if so, -->
+  <!-- future Daniel, refactor it ASAP, don't be lazy. -->
+  <GlobalHeader />
   <slot />
 </main>
