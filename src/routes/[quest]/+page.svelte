@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div>{quest.text}</div>
+    <p class="leading-tight">{quest.text}</p>
   </div>
 </section>
 
