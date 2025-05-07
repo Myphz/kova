@@ -10,6 +10,7 @@ export default {
       "h-2": "2.5rem",
       "h-3": "1.75rem",
       "h-4": "1.5rem",
+      button: "1.25rem",
       body: "1rem",
       small: "0.875rem",
       xs: "0.75rem"

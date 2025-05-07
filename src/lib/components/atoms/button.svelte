@@ -15,7 +15,7 @@
 <button
   {type}
   class={twMerge(
-    "cyberpunk flex w-full justify-center bg-accent py-2.5 text-body font-semibold uppercase text-background",
+    "cyberpunk !text-button flex w-full justify-center bg-accent py-2 font-semibold uppercase text-background",
     className
   )}
 >

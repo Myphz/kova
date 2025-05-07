@@ -7,7 +7,7 @@
   const goBack = () => window.history.back();
 </script>
 
-<header class="mb-8 flex items-center justify-between">
+<header class="mb-8 flex items-center justify-between leading-none">
   <div class="flex items-center gap-4 text-h-1">
     {#if route !== "/"}
       <button onclick={goBack}>
