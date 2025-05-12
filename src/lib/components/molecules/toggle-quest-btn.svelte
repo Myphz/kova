@@ -20,4 +20,4 @@
   };
 </script>
 
-<Button onclick={toggleQuest}>{quest.done ? "undo" : "complete"}</Button>
+<Button onclick={toggleQuest}>{quest.done ? "Retry" : "Complete"}</Button>

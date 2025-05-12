@@ -1,6 +1,7 @@
 <script lang="ts">
   import Quest from "@atoms/quest.svelte";
   import { quests } from "../../../stores/quests.svelte";
+  import EmptyState from "@atoms/empty-state.svelte";
 
   const notDoneQuests = $derived(
     Object.values(quests)
@@ -15,21 +16,25 @@
   );
 </script>
 
-<div class="flex flex-col gap-4">
-  <section class="flex flex-col gap-4">
-    {#each notDoneQuests as quest (quest.id)}
-      <Quest {...quest} />
-    {/each}
-  </section>
-
-  {#if doneQuests.length}
-    {#if notDoneQuests.length}
-      <hr class="h-0.5 bg-border text-border" />
-    {/if}
+{#if doneQuests.length || notDoneQuests.length}
+  <div class="flex flex-col gap-4">
     <section class="flex flex-col gap-4">
-      {#each doneQuests as quest (quest.id)}
+      {#each notDoneQuests as quest (quest.id)}
         <Quest {...quest} />
       {/each}
     </section>
-  {/if}
-</div>
+
+    {#if doneQuests.length}
+      {#if notDoneQuests.length}
+        <hr class="h-0.5 bg-border text-border" />
+      {/if}
+      <section class="flex flex-col gap-4">
+        {#each doneQuests as quest (quest.id)}
+          <Quest {...quest} />
+        {/each}
+      </section>
+    {/if}
+  </div>
+{:else}
+  <EmptyState />
+{/if}

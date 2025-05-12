@@ -7,6 +7,10 @@
   const goBack = () => window.history.back();
 </script>
 
+<!-- This is risky... I hope managing the header state here globally -->
+<!-- with if statements will be OK and I won't regret it... -->
+<!-- I hope it's not going to be too complex... if so, -->
+<!-- future Daniel, refactor it ASAP, don't be lazy. -->
 <header class="mb-8 flex items-center justify-between leading-none">
   <div class="flex items-center gap-4 text-h-1">
     {#if route !== "/"}
