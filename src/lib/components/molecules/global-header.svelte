@@ -14,7 +14,7 @@
         <ChevronLeft size="1em" />
       </button>
     {/if}
-    <h1 class="text-primary">KOVA</h1>
+    <h1 class="font-semibold text-primary">KOVA</h1>
   </div>
   <a href="/edit">
     <Plus class="text-h-1 text-accent" size="1em" />

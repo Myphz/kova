@@ -3,21 +3,27 @@
   import type { HTMLButtonAttributes } from "svelte/elements";
   import { twMerge } from "tailwind-merge";
 
-  type Props = {
+  type Props = HTMLButtonAttributes & {
     children: Snippet;
     type?: HTMLButtonAttributes["type"];
-    class: string;
+    class?: string;
   };
 
-  const { children, class: className, type = "button" }: Props = $props();
+  const {
+    children,
+    class: className,
+    type = "button",
+    ...restProps
+  }: Props = $props();
 </script>
 
 <button
   {type}
   class={twMerge(
-    "cyberpunk !text-button flex w-full justify-center bg-accent py-2 font-semibold uppercase text-background",
+    "cyberpunk flex w-full justify-center bg-accent py-2 !text-button font-semibold uppercase text-background",
     className
   )}
+  {...restProps}
 >
   {@render children()}
 </button>

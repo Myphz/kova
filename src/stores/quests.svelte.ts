@@ -8,6 +8,7 @@ export type Quest = {
   title: string;
   description: string;
   text: string;
+  done?: boolean;
 };
 
 type Quests = Record<string, Quest>;
@@ -34,7 +35,7 @@ export const saveQuest = async (
 };
 
 export const getQuest = (id: Quest["id"]) => {
-  const ret = quests[id];
+  const ret = $derived(quests[id]);
   if (!ret) throw new Error("getQuest: can't find quest!");
   return ret;
 };
