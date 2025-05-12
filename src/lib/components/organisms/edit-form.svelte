@@ -26,7 +26,11 @@
   });
 
   const onSubmit = async (quest: z.infer<typeof schema>) => {
-    await saveQuest({ ...quest, description: "" });
+    await saveQuest({
+      ...editingQuest,
+      ...quest,
+      description: "Generating..."
+    });
     goto("/");
   };
 </script>
@@ -39,5 +43,7 @@
 >
   <Input label="Title" name="title" />
   <Textarea label="Text" name="text" />
-  <Button class="mt-4" type="submit">CREATE QUEST</Button>
+  <Button class="mt-4" type="submit">
+    {questId ? "EDIT" : "CREATE"} QUEST
+  </Button>
 </Form>

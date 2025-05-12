@@ -2,6 +2,7 @@
   import { page } from "$app/state";
   import { Plus } from "@lucide/svelte";
   import { ChevronLeft } from "@lucide/svelte";
+  import { deleteQuest } from "../../../stores/quests.svelte";
 
   const route = $derived(page.url.pathname);
   const goBack = () => window.history.back();
@@ -20,7 +21,23 @@
     {/if}
     <h1 class="font-semibold text-primary">KOVA</h1>
   </div>
-  <a href="/edit">
-    <Plus class="text-h-1 text-accent" size="1em" />
-  </a>
+  {#if page.route.id !== "/[quest]"}
+    <a href="/edit">
+      <Plus class="text-h-1 text-accent" size="1em" />
+    </a>
+  {:else}
+    <div class="flex items-center gap-4 *:size-8">
+      <a href="/edit/{page.params.quest}">
+        <img src="/ri_edit-box-line.svg" alt="ammazzati" />
+      </a>
+      <button
+        onclick={() => {
+          deleteQuest(Number(page.params.quest));
+          window.history.back();
+        }}
+      >
+        <img src="/gridicons_cross.svg" alt="ammazzati" />
+      </button>
+    </div>
+  {/if}
 </header>

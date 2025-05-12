@@ -16,7 +16,7 @@
     class="cybdiv cyberpunk relative bg-border p-4 leading-none after:bg-background"
   >
     <div class="relative z-10 flex flex-col gap-4">
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-4">
         {#if !quest.done}
           <div
             class="relative after:absolute after:left-1/2 after:top-1/2 after:size-5 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-accent after:blur-[10px]"

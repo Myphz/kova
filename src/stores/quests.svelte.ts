@@ -40,5 +40,10 @@ export const getQuest = (id: Quest["id"]) => {
   return ret;
 };
 
+export const deleteQuest = async (id: Quest["id"]) => {
+  delete quests[id];
+  await saveQuests();
+};
+
 const saveQuests = () =>
   Preferences.set({ key: QUESTS_KEY, value: JSON.stringify(quests) });
