@@ -16,6 +16,7 @@
   const toggleQuest = () => {
     quest.done = !quest.done;
     saveQuest(quest);
+    window.history.back();
   };
 </script>
 
