@@ -32,8 +32,9 @@
       </a>
       <button
         onclick={() => {
-          deleteQuest(Number(page.params.quest));
-          window.history.back();
+          const questId = page.params.quest;
+          goBack();
+          setTimeout(() => deleteQuest(Number(questId)), 50);
         }}
       >
         <img src="/gridicons_cross.svg" alt="ammazzati" />
