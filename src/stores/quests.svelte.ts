@@ -35,7 +35,7 @@ export const saveQuest = async (
 };
 
 export const getQuest = (id: Quest["id"]) => {
-  const ret = $derived(quests[id]);
+  const ret = quests[id];
   if (!ret) throw new Error("getQuest: can't find quest!");
   return ret;
 };
