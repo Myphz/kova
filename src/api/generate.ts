@@ -1,6 +1,6 @@
 import type { Quest } from "../stores/quests.svelte";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = "https://kova.fly.dev";
 
 export const getQuestDescription = async (
   quest: Pick<Quest, "title" | "text">
