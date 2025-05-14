@@ -3,9 +3,11 @@
   import "../style/app.css";
   import "../style/fonts.css";
   import { loadQuests } from "../stores/quests.svelte";
+  import { appConfig } from "../config";
   import GlobalHeader from "@molecules/global-header.svelte";
 
   onMount(() => {
+    appConfig();
     loadQuests();
   });
 </script>
